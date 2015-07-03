@@ -22,10 +22,10 @@ def user_post_route():
 
 
 
-@app.route('/customer/', methods=['GET'])
-def all_users_get_route():
-    email = request.form.get('email')
-    repo.get_cust(email)
-
+@app.route('/customer/<email>', methods=['GET'])
+def all_users_get_route(email):
+    # = request.form.get('email')
+   	repo.get_cust(email)
+   	
 
 

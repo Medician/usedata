@@ -5,7 +5,7 @@ from sqlite3 import DatabaseError
 
 def create_cust(email, phone, address):
     try:
-        query = 'insert into Manya(email, phone, address) values (?, ?, ?)'
+        query = 'insert into Manya (email, phone, address) values (?, ?, ?)'
         provider.insert_item(query, email, phone, address)
         login = Login(email, phone, address)
         return login
@@ -16,7 +16,8 @@ def create_cust(email, phone, address):
 
 
 def get_cust(email):
-    user = provider.get_item(email)
+	
+    user = provider.get_item("select * from Manya where email = ?",email)
     return user
 
 
